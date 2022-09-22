@@ -22,13 +22,12 @@ int main()
 
 	// Load the sounds used in the game
 	sf::SoundBuffer ballSoundBuffer;
-	//if (!ballSoundBuffer.loadFromFile("ball.wav"))
-	//{
-	//	return EXIT_FAILURE;
+	/*if (!ballSoundBuffer.loadFromFile("C:/C++/Games_Pong/ball.wav"))
+	{
+		return EXIT_FAILURE;
 
-	//}
-	// ballSoundBuffer.loadFromFile("ball.wav");
-
+	}*/
+	ballSoundBuffer.loadFromFile("C:/C++/Games_Pong/ball.wav");
 	sf::Sound ballSound(ballSoundBuffer);
 
 	//Create the left paddle
@@ -57,11 +56,10 @@ int main()
 
 	// Load the text font
 	sf::Font font;
-	//if (!font.loadFromFile("Inconsolata.ttf"))
-	//{
-	//	return EXIT_FAILURE;
-	//}
-	font.loadFromFile("Inconsolata.ttf");
+	if (!font.loadFromFile("C:/C++/Games_Pong/Inconsolata.ttf"))
+	{
+		return EXIT_FAILURE;
+	}
 
 	// Initialize the pause message
 	sf::Text pauseMessage;
