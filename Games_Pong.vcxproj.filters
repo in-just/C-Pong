@@ -116,13 +116,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Media Include="ball.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
+    <Media Include="blip.wav" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="Inconsolata.ttf">
-      <Filter>Resource Files</Filter>
-    </Font>
+    <Font Include="OpenSans.ttf" />
+    <Font Include="consola.ttf" />
+    <Font Include="verdana.ttf" />
+    <Font Include="sansation.ttf" />
   </ItemGroup>
 </Project>

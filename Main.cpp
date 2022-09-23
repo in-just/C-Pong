@@ -4,8 +4,20 @@
 #include <ctime>
 #include <cstdlib>
 
+
+void PrintFullPath(const char* partialPath)
+{
+	char full[_MAX_PATH];
+	if (_fullpath (full, partialPath, _MAX_PATH) != NULL)
+		printf("Full path is %s\n", full);
+	else 
+		printf("Invalid path\n" );
+}
+
 int main()
 {
+	PrintFullPath("");
+
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
 
 	// Define some constants
@@ -22,12 +34,10 @@ int main()
 
 	// Load the sounds used in the game
 	sf::SoundBuffer ballSoundBuffer;
-	/*if (!ballSoundBuffer.loadFromFile("C:/C++/Games_Pong/ball.wav"))
+	if (!ballSoundBuffer.loadFromFile("blip.wav"))
 	{
 		return EXIT_FAILURE;
-
-	}*/
-	ballSoundBuffer.loadFromFile("C:/C++/Games_Pong/ball.wav");
+	}
 	sf::Sound ballSound(ballSoundBuffer);
 
 	//Create the left paddle
@@ -56,7 +66,7 @@ int main()
 
 	// Load the text font
 	sf::Font font;
-	if (!font.loadFromFile("C:/C++/Games_Pong/Inconsolata.ttf"))
+	if (!font.loadFromFile("sansation.ttf"))
 	{
 		return EXIT_FAILURE;
 	}
