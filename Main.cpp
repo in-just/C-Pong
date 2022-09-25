@@ -3,21 +3,11 @@
 #include <cmath>
 #include <ctime>
 #include <cstdlib>
+#include <iostream>
 
-
-void PrintFullPath(const char* partialPath)
-{
-	char full[_MAX_PATH];
-	if (_fullpath (full, partialPath, _MAX_PATH) != NULL)
-		printf("Full path is %s\n", full);
-	else 
-		printf("Invalid path\n" );
-}
 
 int main()
 {
-	PrintFullPath("");
-
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
 
 	// Define some constants
@@ -58,6 +48,7 @@ int main()
 
 	// Create the ball
 	sf::CircleShape ball;
+
 	ball.setRadius(ballRadius - 3);
 	ball.setOutlineThickness(3);
 	ball.setOutlineColor(sf::Color::Black);
@@ -170,6 +161,10 @@ int main()
 			float factor = ballSpeed * deltaTime;
 			ball.move(std::cos(ballAngle) * factor, std::sin(ballAngle) * factor);
 
+			// TODO writing out the ball position
+			sf::Vector2f pos = ball.getPosition();
+			std::cout << pos.x << " " << pos.y << std::endl;
+
 			// Check for collisions between the ball and the screen
 			if (ball.getPosition().x - ballRadius < 0.f)
 			{
@@ -214,7 +209,7 @@ int main()
 			}
 
 			// Right paddle
-			if (ball.getPosition().x - ballRadius > rightPaddle.getPosition().x - paddleSize.x / 2 &&
+			if (ball.getPosition().x + ballRadius > rightPaddle.getPosition().x - paddleSize.x / 2 &&
 				ball.getPosition().x + ballRadius < rightPaddle.getPosition().x &&
 				ball.getPosition().y + ballRadius >= rightPaddle.getPosition().y - paddleSize.y / 2 &&
 				ball.getPosition().y - ballRadius <= rightPaddle.getPosition().y + paddleSize.y / 2)
