@@ -13,7 +13,7 @@ int main()
 	// Define some constants
 	const float pi = 3.14159f;
 	const int gameWidth = 800;
-	const  int gameHeight = 600;
+	const  int gameHeight = 800;
 	sf::Vector2f paddleSize(25, 100);
 	float ballRadius = 10.f;
 
@@ -57,7 +57,7 @@ int main()
 
 	// Load the text font
 	sf::Font font;
-	if (!font.loadFromFile("sansation.ttf"))
+	if (!font.loadFromFile("consola.ttf"))
 	{
 		return EXIT_FAILURE;
 	}
@@ -65,7 +65,7 @@ int main()
 	// Initialize the pause message
 	sf::Text pauseMessage;
 	pauseMessage.setFont(font);
-	pauseMessage.setCharacterSize(40);
+	pauseMessage.setCharacterSize(24);
 	pauseMessage.setPosition(170.f, 150.f);
 	pauseMessage.setFillColor(sf::Color::White);
 	pauseMessage.setString("This is Justin's version of Pong!\nPres space to start the game");
