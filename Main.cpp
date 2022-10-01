@@ -24,7 +24,7 @@ int main()
 
 	// Load the sounds used in the game
 	sf::SoundBuffer ballSoundBuffer;
-	if (!ballSoundBuffer.loadFromFile("blip.wav"))
+	if (!ballSoundBuffer.loadFromFile("whatTimeIsIt.flac"))
 	{
 		return EXIT_FAILURE;
 	}
@@ -160,8 +160,8 @@ int main()
 			float factor = ballSpeed * deltaTime;
 			ball.move(std::cos(ballAngle) * factor, std::sin(ballAngle) * factor);
 
-			// TODO writing out the ball position
 			sf::Vector2f pos = ball.getPosition();
+			// TODO writing out the ball position
 			std::cout << pos.x << " " << pos.y << std::endl;
 
 			// Check for collisions between the ball and the screen
@@ -226,7 +226,7 @@ int main()
 			}
 		}
 
-		// Clear the window
+		// Window background color 
 		window.clear(sf::Color(0,0,0));
 
 		if (isPlaying)

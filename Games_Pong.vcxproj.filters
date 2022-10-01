@@ -114,9 +114,11 @@
     <None Include="..\..\SFML-2.5.1\include\SFML\Graphics\Rect.inl">
       <Filter>SFML/Graphics</Filter>
     </None>
+    <None Include="..\SFML\SFML\whatTimeIsIt.flac" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="blip.wav" />
+    <Media Include="..\SFML\SFML\whatTimeIsIt.wav" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="OpenSans.ttf" />

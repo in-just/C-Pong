@@ -168,8 +168,10 @@
   <ItemGroup>
     <None Include="..\..\SFML-2.5.1\include\SFML\Graphics\Glsl.inl" />
     <None Include="..\..\SFML-2.5.1\include\SFML\Graphics\Rect.inl" />
+    <None Include="..\SFML\SFML\whatTimeIsIt.flac" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="..\SFML\SFML\whatTimeIsIt.wav" />
     <Media Include="blip.wav" />
   </ItemGroup>
   <ItemGroup>
