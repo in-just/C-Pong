@@ -33,22 +33,21 @@ int main()
 	//Create the left paddle
 	sf::RectangleShape leftPaddle;
 	leftPaddle.setSize(paddleSize - sf::Vector2f(3, 3));
-	leftPaddle.setOutlineThickness(3);
-	leftPaddle.setOutlineColor(sf::Color::Black);
-	leftPaddle.setFillColor(sf::Color(100, 100, 200));
+	leftPaddle.setOutlineThickness(1);
+	leftPaddle.setOutlineColor(sf::Color::White);
+	leftPaddle.setFillColor(sf::Color::White);
 	leftPaddle.setOrigin(paddleSize / 2.f);
 
 	//Create the right paddle
 	sf::RectangleShape rightPaddle;
 	rightPaddle.setSize(paddleSize - sf::Vector2f(3, 3));
-	rightPaddle.setOutlineThickness(3);
-	rightPaddle.setOutlineColor(sf::Color::Black);
-	rightPaddle.setFillColor(sf::Color(200, 100, 100));
+	rightPaddle.setOutlineThickness(1);
+	rightPaddle.setOutlineColor(sf::Color::White);
+	rightPaddle.setFillColor(sf::Color::White);
 	rightPaddle.setOrigin(paddleSize / 2.f);
 
 	// Create the ball
 	sf::CircleShape ball;
-
 	ball.setRadius(ballRadius - 3);
 	ball.setOutlineThickness(3);
 	ball.setOutlineColor(sf::Color::Black);
@@ -68,15 +67,15 @@ int main()
 	pauseMessage.setCharacterSize(24);
 	pauseMessage.setPosition(170.f, 150.f);
 	pauseMessage.setFillColor(sf::Color::White);
-	pauseMessage.setString("This is Justin's version of Pong!\nPres space to start the game");
+	pauseMessage.setString("Press space to start the game \nDesigner: injust");
 
 	// Define the paddle properties
 	sf::Clock AllTimer;
 	const sf::Time AllTime = sf::seconds(0.1f);
-	const float paddleSpeed = 400.f;
+	const float paddleSpeed = 500.f;
 	float rightPaddleSpeed = 0.f;
-	const float ballSpeed = 400.f;
-	float ballAngle = 0.f;
+	const float ballSpeed = 500.f;
+	float ballAngle = 1.f;
 
 	sf::Clock clock;
 	bool isPlaying = false;
@@ -123,11 +122,11 @@ int main()
 			float deltaTime = clock.restart().asSeconds();
 
 			// Move the player's paddle
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && (leftPaddle.getPosition().y - paddleSize.y / 2 > 5.f))
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) && (leftPaddle.getPosition().y - paddleSize.y / 2 > 5.f))
 			{
 				leftPaddle.move(0.f, -paddleSpeed * deltaTime);
 			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && (leftPaddle.getPosition().y + paddleSize.y / 2 < gameHeight - 5.f))
+			if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) && (leftPaddle.getPosition().y + paddleSize.y / 2 < gameHeight - 5.f))
 			{
 				leftPaddle.move(0.f, paddleSpeed * deltaTime);
 			}
@@ -228,7 +227,7 @@ int main()
 		}
 
 		// Clear the window
-		window.clear(sf::Color(50, 200, 50));
+		window.clear(sf::Color(0,0,0));
 
 		if (isPlaying)
 		{
